@@ -10,7 +10,7 @@ private Date date;
 	private double sellingExchangeRate;
 	private double middleExchangeRate;
 	
-	public ExchangeRate(Date date, double buyingExchangeRate, double sellingExchangeRate, double middleExchangeRate) 
+	public ExchangeRate(Date date, double buyingExchangeRate, double sellingExchangeRate) 
 	{
 		this.setDate(date);
 		this.setBuyingExchangeRate(buyingExchangeRate);
