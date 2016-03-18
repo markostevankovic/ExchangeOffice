@@ -25,6 +25,8 @@ private Date date;
 
 	public void setDate(Date date)
 	{
+		if(date == null)
+			throw new RuntimeException("Date could not be null!");
 		this.date = date;
 	}
 
@@ -35,6 +37,8 @@ private Date date;
 
 	public void setBuyingExchangeRate(double buyingExchangeRate)
 	{
+		if(buyingExchangeRate <= 0)
+			throw new RuntimeException("Buying exchange rate must be a positive real number!");
 		this.buyingExchangeRate = buyingExchangeRate;
 	}
 
@@ -45,6 +49,8 @@ private Date date;
 
 	public void setSellingExchangeRate(double sellingExchangeRate)
 	{
+		if(sellingExchangeRate <= 0)
+			throw new RuntimeException("Selling exchange rate must be a positive real number!");
 		this.sellingExchangeRate = sellingExchangeRate;
 	}
 
@@ -59,7 +65,8 @@ private Date date;
 	}
 	
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		final int prime = 31;
 		int result = 1;
 		long temp;
@@ -74,7 +81,8 @@ private Date date;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj)
+	{
 		if (this == obj)
 			return true;
 		if (obj == null)

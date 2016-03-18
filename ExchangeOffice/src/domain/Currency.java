@@ -23,6 +23,8 @@ public class Currency
 
 	public void setCurrencyName(String currencyName)
 	{
+		if(currencyName.trim().equals("") || currencyName == null)
+			throw new RuntimeException("Currency name cannot be null nor an empty string!");
 		this.currencyName = currencyName;
 	}
 
@@ -33,6 +35,8 @@ public class Currency
 
 	public void setCurrencySymbol(String currencySymbol) 
 	{
+		if(currencySymbol.trim().equals("") || currencySymbol == null)
+			throw new RuntimeException("Currency symbol cannot be null nor an empty string!");
 		this.currencySymbol = currencySymbol;
 	}
 
@@ -43,6 +47,8 @@ public class Currency
 
 	public void setExchangeRate(ArrayList<ExchangeRate> exchangeRate) 
 	{
+		if(exchangeRate == null)
+			throw new RuntimeException("Given list in null. Try again...");
 		this.exchangeRate = exchangeRate;
 	}
 	
