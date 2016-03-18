@@ -2,11 +2,21 @@ package domain;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Marko Stevankovic, University of Belgrade, Faculty of Organizational Sciences
+ *
+ */
+
 public class Currency 
 {
 	private String currencyName;
 	private String currencySymbol;
 	
+	/**
+	 * echangeRate contains all exchange rate for current Currency.
+	 * This list should be updated on daily basis...	
+	 */
 	private ArrayList<ExchangeRate> exchangeRate = new ArrayList<ExchangeRate>();
 
 	public Currency(String currencyName, String currencySymbol, ArrayList<ExchangeRate> exchangeRate)

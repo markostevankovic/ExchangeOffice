@@ -5,8 +5,19 @@ import java.util.Date;
 
 import exchange_office_interface.EchangeOfficeInterface;
 
+
+/**
+ * 
+ * @author Marko Stevankovic, Advanced Java Programming Tools and Techniques, FON, 03.18.2016.
+ *
+ */
 public class ExchangeOffice implements EchangeOfficeInterface
 {
+	/**
+	 * ExchangeOffice consists of more different currencies...
+	 * We upload these currencies from a database, from text file etc...
+	 * There is no specific method for that upload...
+	 */
 	ArrayList<Currency> currencies = new ArrayList<Currency>();
 
 	@Override

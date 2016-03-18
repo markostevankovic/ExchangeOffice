@@ -2,9 +2,14 @@ package domain;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Marko Stevankovic
+ *
+ */
 public class ExchangeRate
 {
-private Date date;
+	private Date date;
 	
 	private double buyingExchangeRate;
 	private double sellingExchangeRate;
