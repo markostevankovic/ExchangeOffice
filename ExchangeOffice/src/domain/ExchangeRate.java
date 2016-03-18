@@ -57,4 +57,52 @@ private Date date;
 	{
 		this.middleExchangeRate = (this.getBuyingExchangeRate() + this.getSellingExchangeRate()) / 2.0;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(buyingExchangeRate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		temp = Double.doubleToLongBits(middleExchangeRate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(sellingExchangeRate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ExchangeRate))
+			return false;
+		ExchangeRate other = (ExchangeRate) obj;
+		if (Double.doubleToLongBits(buyingExchangeRate) != Double.doubleToLongBits(other.buyingExchangeRate))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (Double.doubleToLongBits(middleExchangeRate) != Double.doubleToLongBits(other.middleExchangeRate))
+			return false;
+		if (Double.doubleToLongBits(sellingExchangeRate) != Double.doubleToLongBits(other.sellingExchangeRate))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "ExchangeRate" + 
+				"\n\tdate: " + this.getDate()+ 
+				"\n\tbuying exchange rate: " + this.getBuyingExchangeRate() + 
+				"\n\tselling exchange rate: " + this.getSellingExchangeRate() + 
+				"\n\tmiddle exchange rate: " + this.getMiddleExchangeRate();
+	}	
 }
