@@ -10,19 +10,14 @@ public class ExchangeOffice implements EchangeOfficeInterface
 	ArrayList<Currency> currencies = new ArrayList<Currency>();
 
 	@Override
-	public void addNewExchangeRate(Currency currency, Date date, double buyingEchangeRate, double sellingExchangeRate)
-	{
-		boolean exists = false;
-		
+	public void addNewExchangeRate(Currency currency, Date date, double buyingEchangeRate, double sellingExchangeRate) 
+	{		
 		for(Currency temporaryCurrency : currencies)
-			if(temporaryCurrency == currency)
+			if(temporaryCurrency.equals(currency))
 			{
 				temporaryCurrency.getExchangeRate().add(new ExchangeRate(date, buyingEchangeRate, sellingExchangeRate));
-				exists = true;
-				break;
+				return;
 			}
-		
-		if(!exists)
 			throw new RuntimeException("Given currency not found!");
 	}
 
@@ -43,13 +38,11 @@ public class ExchangeOffice implements EchangeOfficeInterface
 				}
 			}
 		}
-		
-		throw new RuntimeException("Given currency with specific date not found!");
 	}
 
 	@Override
 	public ExchangeRate getExchangeRate(Currency currency, Date date)
-	{
+	{		
 		for(Currency temporaryCurrency : currencies)
 			if(temporaryCurrency.equals(currency))
 				for(ExchangeRate temporaryExchangeRate : temporaryCurrency.getExchangeRate())
